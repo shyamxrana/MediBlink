@@ -1,0 +1,5 @@
+{
+  "name": "MediBlink",
+  "description": "A comprehensive healthcare platform connecting patients with doctors, featuring AI-powered triage, appointment scheduling, and prescription management.",
+  "requestFramePermissions": []
+}
