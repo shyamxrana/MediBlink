@@ -71,7 +71,7 @@ export const AIAssistant: React.FC<AIAssistantProps> = ({ onDoctorSelect, classN
   };
 
   return (
-    <div className={`flex flex-col bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 ${className ?? 'h-[600px]'}`}>
+    <div className={`flex flex-col bg-[#0C4A6E] rounded-2xl shadow-xl overflow-hidden border border-slate-200 ${className ?? 'h-[600px]'}`}>
       {/* Header */}
       <div className="bg-primary-600 p-4 text-white flex items-center justify-between flex-shrink-0">
         <div className="flex items-center space-x-2">

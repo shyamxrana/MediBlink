@@ -157,9 +157,9 @@ export default function Home() {
   );
 
   return (
-    <div className="min-h-screen bg-[#0C4A6E] flex flex-col font-sans">
+    <div className="min-h-screen  flex flex-col font-sans">
       {/* Navigation */}
-      <nav className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
+      <nav className="sticky top-0  z-40 bg-white border-b border-slate-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center cursor-pointer" onClick={() => setCurrentView('home')}>
@@ -243,7 +243,7 @@ export default function Home() {
         {currentView === 'home' && (
           <div>
             {/* Hero */}
-            <div className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-600 text-white py-24 px-4 overflow-hidden">
+            <div className="relative bg-[#0C4A6E] via-primary-800 to-primary-600 text-white py-24 px-4 overflow-hidden">
               <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/medical-icons.png')]"></div>
               <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center">
                 <div className="md:w-1/2 mb-10 md:mb-0">
@@ -272,7 +272,7 @@ export default function Home() {
                 </div>
                 <div className="md:w-1/2 flex justify-center">
                    <div className="relative w-full max-w-md aspect-square bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center p-8 border border-white/20 shadow-2xl animate-fade-in">
-                      <img src="https://picsum.photos/seed/doctorhero/600/600" alt="Doctor" className="rounded-full shadow-lg object-cover w-full h-full border-4 border-white/50" />
+                      <img src="https://cdn.prod.website-files.com/66bd394eedeb9d6ee29898c6/682f5450a046c241920c1e6f_Three%20doctors%20standing%20side%20by%20side%2C%20crossing%20their%20arms.jpg" alt="Doctor" className="rounded-full shadow-lg object-cover w-full h-full border-4 border-white/50" />
                       
                       {/* Floating Badge */}
                       <div className="absolute -bottom-4 right-10 bg-white text-slate-900 p-4 rounded-xl shadow-xl flex items-center gap-3 animate-bounce-slow z-20">
@@ -409,7 +409,7 @@ export default function Home() {
             </div>
 
             {/* Testimonials */}
-            <div className="py-20 px-4 bg-primary-900 text-white">
+            <div className="py-20 px-4 bg-[#0C4A6E]  text-white ">
                <div className="max-w-7xl mx-auto">
                  <h2 className="text-3xl font-bold text-center mb-12">What Our Patients Say</h2>
                  <div className="grid md:grid-cols-3 gap-8">
@@ -648,7 +648,7 @@ export default function Home() {
       </footer>
 
       {/* AI Floating Action Button & Widget */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-4">
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-4 ">
         {isWidgetOpen && (
           <div className="w-[350px] md:w-[400px] animate-fade-in-up origin-bottom-right shadow-2xl rounded-2xl">
              <AIAssistant 
@@ -671,7 +671,7 @@ export default function Home() {
         )}
         <button
           onClick={() => setIsWidgetOpen(!isWidgetOpen)}
-          className={`p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center relative ${isWidgetOpen ? 'bg-slate-800 rotate-90' : 'bg-primary-600 hover:bg-primary-700'}`}
+          className={`p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center relative ${isWidgetOpen ? 'bg-slate-800 rotate-90' : 'bg-black hover:bg-[#0A3A58]'}`}
         >
           {isWidgetOpen ? (
              <X className="text-white w-6 h-6" />
