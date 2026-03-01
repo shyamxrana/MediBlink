@@ -4,9 +4,20 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { Doctor } from '../types';
 
 // The API key is safely accessed on the server side
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const apiKey = process.env.API_KEY;
+const ai = new GoogleGenAI({ apiKey: apiKey || 'dummy-key' });
 
 export const getDoctorRecommendations = async (symptoms: string, doctors: Doctor[]) => {
+  if (!apiKey) {
+    console.error("API_KEY is missing in environment variables.");
+    return {
+      analysis: "Configuration Error",
+      recommendedSpecialty: "General Practice",
+      recommendedDoctorIds: [],
+      message: "System configuration error: API Key is missing. Please add API_KEY to your .env.local file and restart the server."
+    };
+  }
+
   try {
     const doctorContext = doctors.map(d => ({
       id: d.id,
@@ -29,7 +40,7 @@ export const getDoctorRecommendations = async (symptoms: string, doctors: Doctor
     `;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+      model: 'gemini-1.5-flash',
       contents: prompt,
       config: {
         responseMimeType: "application/json",
@@ -38,8 +49,8 @@ export const getDoctorRecommendations = async (symptoms: string, doctors: Doctor
           properties: {
             analysis: { type: Type.STRING, description: "Brief analysis of symptoms" },
             recommendedSpecialty: { type: Type.STRING },
-            recommendedDoctorIds: { 
-              type: Type.ARRAY, 
+            recommendedDoctorIds: {
+              type: Type.ARRAY,
               items: { type: Type.STRING },
               description: "IDs of the recommended doctors"
             },
@@ -55,13 +66,13 @@ export const getDoctorRecommendations = async (symptoms: string, doctors: Doctor
     }
     throw new Error("No response text from Gemini");
 
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error getting AI recommendations:", error);
     return {
       analysis: "Unable to analyze at this moment.",
       recommendedSpecialty: "General Practice",
       recommendedDoctorIds: [],
-      message: "I'm having trouble connecting to my medical database. Please browse our General Practitioners."
+      message: `Error connecting to AI service: ${error.message || 'Unknown error'}. Please check your API key and network connection.`
     };
   }
 };
