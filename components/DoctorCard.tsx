@@ -49,7 +49,7 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ doctor, onBook }) => {
             </span>
           </div>
           <Button onClick={() => onBook(doctor)} className="w-full">
-            Book Appointment
+            Book Appointment 
           </Button>
         </div>
       </div>
