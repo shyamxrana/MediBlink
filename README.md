@@ -66,7 +66,7 @@ This application is currently a **Proof of Concept (PoC)** and has the following
 ## 🔮 Future Roadmap
 
 -   [ ] Migrate authentication to NextAuth.js or Clerk.
--   [ ] Connect to a real database (PostgreSQL/Supabase).
+-   [ ] Connect to a real database (PostgreSQL/Mongodb).
 -   [ ] Implement real-time video calling (WebRTC).
 -   [ ] Refactor monolithic `page.tsx` into clearer sub-routes.
 -   [ ] Add Doctor Dashboard for managing availability.
