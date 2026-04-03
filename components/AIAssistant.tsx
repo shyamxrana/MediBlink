@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Sparkles, AlertCircle } from 'lucide-react';
 import { Button } from './Button';
 import { getDoctorRecommendations } from '../services/geminiService';
-import { DOCTORS } from '../services/mockDataClient';
+import { DOCTORS } from '../services/mockDataClient'; 
 import { ChatMessage, Doctor } from '../types';
 
 interface AIAssistantProps {
